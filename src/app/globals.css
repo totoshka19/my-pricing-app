@@ -1,26 +1,23 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@layer utilities {
+    /* Цвета фона */
+    .bg-brand-dark { @apply bg-[#111317]; }
+    .bg-brand-gray { @apply bg-[#2D2F33]; }
+    .bg-brand-green { @apply bg-[#194234]; }
+    .bg-brand-yellow { @apply bg-[#FDBA4D]; }
+    .bg-brand-red { @apply bg-[#E44343]; }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+    /* Цвета текста */
+    .text-brand-dark { @apply text-[#111317]; }
+    .text-brand-yellow { @apply text-[#FFBB00]; }
+    .text-brand-red { @apply text-[#FF4E4E]; }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+    /* Цвета рамок */
+    .border-brand-yellow { @apply border-[#FDBA4D]; }
+    .border-brand-gray { @apply border-[#4D4F53]; }
+    .border-brand-green { @apply border-[#194234]; }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    /* Цвет для акцента (чекбокс) */
+    .accent-brand-yellow { @apply accent-[#FDB056]; }
 }
