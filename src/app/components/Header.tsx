@@ -17,18 +17,11 @@ const Header = () => {
     const minutes = String(Math.floor(timeLeft / 60)).padStart(2, '0');
     const seconds = String(timeLeft % 60).padStart(2, '0');
 
-    let timerTextClass = 'text-[40px] font-bold transition-colors duration-300';
-    let iconColorClass = '';
-
+    let colorClass = 'text-accent-yellow';
     if (timeLeft <= 30 && timeLeft > 0) {
-        timerTextClass += ' text-brand-red animate-pulse';
-        iconColorClass = 'text-brand-red';
+        colorClass = 'text-brand-red animate-pulse';
     } else if (timeLeft === 0) {
-        timerTextClass += ' text-white';
-        iconColorClass = 'text-white';
-    } else {
-        timerTextClass += ' text-brand-yellow';
-        iconColorClass = 'text-brand-yellow';
+        colorClass = 'text-white';
     }
 
     return (
@@ -37,15 +30,15 @@ const Header = () => {
                 <p className="text-[24px]">Успейте открыть пробную неделю</p>
 
                 <div className="flex items-center gap-3">
-                    <StarIcon className={`w-3.5 h-3.5 ${iconColorClass}`} />
+                    <StarIcon className={`w-3.5 h-3.5 ${colorClass}`} />
 
-                    <div className={`${timerTextClass} font-raleway tabular-nums flex items-center gap-2`}>
+                    <div className={`text-[40px] font-bold transition-colors duration-300 font-raleway tabular-nums flex items-center gap-2 ${colorClass}`}>
                         <span>{minutes}</span>
                         <span>:</span>
                         <span>{seconds}</span>
                     </div>
 
-                    <StarIcon className={`w-3.5 h-3.5 ${iconColorClass}`} />
+                    <StarIcon className={`w-3.5 h-3.5 ${colorClass}`} />
                 </div>
             </div>
         </header>

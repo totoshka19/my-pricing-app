@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Header from "@/app/components/Header";
 import TariffCard from "@/app/components/TariffCard";
 import Image from "next/image";
@@ -11,6 +14,8 @@ export default function Home() {
     { id: 4, period: "1 неделя", price: 690, full_price: 990, text: "Чтобы просто начать", is_best: false, discount: 30 },
   ];
 
+  const [selectedId, setSelectedId] = useState(tariffsData[0].id);
+
   return (
       <>
         <Header />
@@ -23,35 +28,35 @@ export default function Home() {
             <div className="flex flex-col lg:flex-row items-center lg:items-center gap-22">
               <div className="w-full lg:max-w-[380px] flex-shrink-0">
                 <Image
-                    src="/man.png" // Путь к файлу в папке /public
+                    src="/man.png"
                     alt="Fit person"
-                    width={480} // Задаем примерные размеры для оптимизации
+                    width={480}
                     height={720}
                     className="w-full h-auto object-contain"
                 />
               </div>
 
-              <div className="w-full flex flex-col gap-3"> {/* Обертка для вертикального расположения с отступом */}
-
-                {/* Карта "Навсегда" - теперь это отдельный элемент */}
+              <div className="w-full flex flex-col gap-3">
                 <TariffCard
                     {...tariffsData[0]}
-                    isSelected={true}
+                    is_best={tariffsData[0].is_best}
+                    isSelected={tariffsData[0].id === selectedId}
+                    onClick={() => setSelectedId(tariffsData[0].id)}
                 />
 
-                {/* Сетка для остальных трех карт */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                   {tariffsData.slice(1).map(tariff => (
                       <TariffCard
                           key={tariff.id}
                           {...tariff}
-                          isSelected={false}
+                          is_best={tariff.is_best}
+                          isSelected={tariff.id === selectedId}
+                          onClick={() => setSelectedId(tariff.id)}
                       />
                   ))}
                 </div>
 
-                {/* Блок с информацией и кнопкой (остается без изменений) */}
-                <div className="bg-brand-gray p-6 rounded-2xl mt-2"> {/* Добавлен небольшой отступ сверху */}
+                <div className="bg-brand-gray p-6 rounded-2xl mt-2">
                   <p className="mb-4 text-sm">
                     <span className="text-brand-yellow font-bold">!</span> Следуя плану на 3 месяца и более, люди получают в 2 раза лучший результат, чем за 1 месяц
                   </p>

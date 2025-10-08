@@ -2,22 +2,23 @@
 
 @layer utilities {
     /* Цвета фона */
-    .bg-brand-dark { @apply bg-[#111317]; }
+    .bg-brand-dark { @apply bg-[#232829]; }
     .bg-brand-gray { @apply bg-[#2D2F33]; }
     .bg-brand-green { @apply bg-[#194234]; }
     .bg-brand-yellow { @apply bg-[#FDBA4D]; }
-    .bg-brand-red { @apply bg-[#E44343]; }
+    .bg-brand-red { @apply bg-[#FD5656]; }
 
     /* Цвета текста */
     .text-brand-dark { @apply text-[#111317]; }
-    .text-brand-yellow { @apply text-[#FFBB00]; }
+    .text-brand-yellow { @apply text-[#FDBA4D]; }
     .text-brand-red { @apply text-[#FF4E4E]; }
+    .text-accent-yellow { @apply text-[#FFBB00]; }
 
     /* Цвета рамок */
     .border-brand-yellow { @apply border-[#FDBA4D]; }
-    .border-brand-gray { @apply border-[#4D4F53]; }
+    .border-brand-gray { @apply border-[#484D4E]; }
     .border-brand-green { @apply border-[#194234]; }
 
     /* Цвет для акцента (чекбокс) */
-    .accent-brand-yellow { @apply accent-[#FDB056]; }
+    .accent-brand-yellow { @apply accent-[#FFBB00]; }
 }
